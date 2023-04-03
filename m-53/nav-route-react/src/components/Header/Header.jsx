@@ -26,12 +26,12 @@ const Header = () => {
     },
   ];
 
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(false)
  
   return (
-      <li className="text-xl font-bold flex md:gap-6 gap-2 md:flex-row flex-col items-end  justify-center pr-4 py-3 bg-indigo-700 text-white">
+      <li className="duration-500 text-xl font-bold flex md:gap-6 gap-2 md:flex-row flex-col items-end  justify-center pr-4 py-3 bg-indigo-700 text-white rounded-lg ">
           
-          <button onClick={()=>setOpen(!open)} className="md:hidden btn bg-white hover:bg-blue-100 border border-0"> {open? <Bars3CenterLeftIcon  className="h-8 w-8 text-blue-500" />: <XMarkIcon  className="h-8 w-8 text-blue-500" /> }</button>
+          <button onClick={()=>setOpen(!open)} className=" md:hidden btn bg-white hover:bg-blue-100 border border-0"> {open? <Bars3CenterLeftIcon  className="h-8 w-8 text-blue-500" />: <XMarkIcon  className="h-8 w-8 text-blue-500" /> }</button>
       {open || menuList.map((menu) => (
         <Menu key={menu.id} menu={menu}></Menu>
       ))}
