@@ -5,8 +5,10 @@ const PostsDetails = () => {
     const post = useLoaderData()
     const { body, id, userId, title } = post;
     // console.log(post);
-    const navigate = useNavigate()
-    const handlenavigate = () => {
+  const navigate = useNavigate()
+  console.log(useNavigate());
+  const handlenavigate = () => {
+      
         navigate(-1);
     }
     return (
