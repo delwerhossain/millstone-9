@@ -30,6 +30,11 @@ const Header = () => {
       title: "User",
       link: "user",
     },
+    {
+      id: 6,
+      title: "Posts",
+      link: "posts",
+    },
   ];
 
     const [open, setOpen] = useState(false)

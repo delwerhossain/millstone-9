@@ -1,9 +1,13 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const UserDetails = () => {
     const User = useLoaderData()
     const { id, name, phone, website, username, email } = User;
+    const navigate = useNavigate()
+    const handlenavigate = () => {
+        navigate(-1)
+    }
     return (
         <div className="card card-side bg-base-100 shadow-xl">
       <figure>
@@ -17,7 +21,7 @@ const UserDetails = () => {
         <p>Phone : {phone}</p>
         <p>Email : {email}</p>
         <div className="card-actions justify-end">
-         
+         <button onClick={handlenavigate} className='btn'> go back</button>
         </div>
       </div>
     </div>
