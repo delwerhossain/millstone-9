@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Menu from "../Menu/Menu";
 import { Bars3CenterLeftIcon ,XMarkIcon} from '@heroicons/react/24/solid'
+import { Outlet } from "react-router-dom";
 
 const Header = () => {
   const menuList = [
@@ -11,31 +12,43 @@ const Header = () => {
     },
     {
       id: 2,
-      title: "About",
-      link: "/about",
+      title: "Price",
+      link: "price",
     },
     {
       id: 3,
-      title: "Services",
-      link: "/services",
+      title: "Chart",
+      link: "chart",
     },
     {
       id: 4,
       title: "Contact",
-      link: "/contact",
+      link: "contact",
+    },
+    {
+      id: 5,
+      title: "User",
+      link: "user",
     },
   ];
 
     const [open, setOpen] = useState(false)
  
   return (
-      <li className="duration-500 text-xl font-bold flex md:gap-6 gap-2 md:flex-row flex-col items-end  justify-center pr-4 py-3 bg-indigo-700 text-white rounded-lg ">
+    <div>
+   <li className="duration-500 text-xl font-bold flex md:gap-6 gap-2 md:flex-row flex-col items-end  justify-center pr-4 py-3 bg-indigo-700 text-white rounded-lg ">
           
           <button onClick={()=>setOpen(!open)} className=" md:hidden btn bg-white hover:bg-blue-100 border border-0"> {open? <Bars3CenterLeftIcon  className="h-8 w-8 text-blue-500" />: <XMarkIcon  className="h-8 w-8 text-blue-500" /> }</button>
       {open || menuList.map((menu) => (
         <Menu key={menu.id} menu={menu}></Menu>
       ))}
-    </li>
+      </li>
+      <div className="my-1">
+      <Outlet></Outlet>
+      </div>
+      
+    </div>
+   
   );
 };
 

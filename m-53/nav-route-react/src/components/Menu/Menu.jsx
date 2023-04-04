@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Menu = ({ menu }) => {
     const {id , title , link} =menu
     return (
-        <a className='hover:bg-indigo-400 rounded-lg p-2 ' href={link}>{title}</a>
+        <Link className='hover:bg-indigo-400 rounded-lg p-2 ' to={link}>{title}</Link>
     );
 };
 
