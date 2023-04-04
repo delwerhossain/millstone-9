@@ -1,10 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
-const Users = ({ data }) => {
-  const { id, name, phone, website, username, email } = data;
-  return (
-    <div className="card card-side bg-base-100 shadow-xl">
+const UserDetails = () => {
+    const User = useLoaderData()
+    const { id, name, phone, website, username, email } = User;
+    return (
+        <div className="card card-side bg-base-100 shadow-xl">
       <figure>
         <img
           src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
@@ -16,13 +17,11 @@ const Users = ({ data }) => {
         <p>Phone : {phone}</p>
         <p>Email : {email}</p>
         <div className="card-actions justify-end">
-          <Link to={`/user/${id}`} className="btn btn-primary">
-            Watch
-          </Link>
+         
         </div>
       </div>
     </div>
-  );
+    );
 };
 
-export default Users;
+export default UserDetails;
