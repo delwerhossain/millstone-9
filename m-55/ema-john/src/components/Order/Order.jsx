@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Cart from '../Cart/Cart.jsx';
 import ReviewItems from '../ReviewItems/ReviewItems.jsx';
-import { removeFromDb } from '../../utilities/fakedb.js';
+import { deleteShoppingCart, removeFromDb } from '../../utilities/fakedb.js';
 
 const Order = () => {
     const saveCart = useLoaderData()
@@ -13,6 +13,10 @@ const Order = () => {
         setCart(remainingCart)
         removeFromDb(id)
     }
+    const handleClear = () => {
+        setCart([])
+        deleteShoppingCart()
+     }
     return (
         <div className=''>
                <h2 className=' text-5xl bg-green-700 text-white p-3 w-full rounded-lg'>this is OrderList </h2>
@@ -20,12 +24,13 @@ const Order = () => {
                 <div className='col-span-3 '>
                     <div className='grid gap-4 justify-center items-center my-6'>
                         {/* <h1> length : {cart.length}</h1> */}
-                    {cart.map((product)=> <ReviewItems key={product.id} product={product} handleRemove={handleRemove}></ReviewItems>)}
+                        {cart.map((product) => <ReviewItems key={product.id} product={product} handleRemove={handleRemove}
+                        ></ReviewItems>)}
 
                     </div>
                 </div>
                 <div className='col-span-1'>
-                    <Cart key={cart.id} cart={cart}></Cart>
+                    <Cart key={cart.id} cart={cart} handleClear={handleClear}></Cart>
                 </div>
             </div>
         </div>
