@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Cart from '../Cart/Cart.jsx';
 import ReviewItems from '../ReviewItems/ReviewItems.jsx';
+import { removeFromDb } from '../../utilities/fakedb.js';
 
 const Order = () => {
     const saveCart = useLoaderData()
@@ -10,6 +11,7 @@ const Order = () => {
     const handleRemove = (id) => {
         const remainingCart = cart.filter(c => c.id !== id)
         setCart(remainingCart)
+        removeFromDb(id)
     }
     return (
         <div className=''>
