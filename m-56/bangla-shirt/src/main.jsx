@@ -21,13 +21,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader:()=> fetch('shirt.json')
       },
       {
-        path: "/",
+        path: "order",
         element: <Order />,
       }, 
       {
-        path: "/",
+        path: "review",
         element: <Review />,
       }, 
     ],

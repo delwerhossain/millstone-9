@@ -1,9 +1,16 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
+let menuList = [
+  { title: "Home", link: "/", id: 1 },
+  { title: "About Us", link: "/order", id: 2 },
+  { title: "Menu", link: "/review", id: 3 },
+  // { title: "Locations", link: "/locations", id: 4 },
+  // { title: "Contact Us", link: "/contact-us", id: 5 }
+];
 
 const Layouts = () => {
   return (
-    <div>
+    <div className="mb-16">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -27,68 +34,36 @@ const Layouts = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <Link to={"/"}>Home</Link>
-              </li>
-              <li tabIndex={0}>
-                <Link className="justify-between">
-                  Parent
-                  <svg
-                    className="fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
+              {menuList.map((menu) => (
+                <li key={menu.id}>
+                  <NavLink 
+                    className={({ isActive }) =>isActive ? "active mr-5 mb-2" : "mr-5 mb-2"
+                    }
+                    to={menu.link}
                   >
-                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                  </svg>
-                </Link>
-                <ul className="p-2">
-                  <li>
-                    <Link>Submenu 1</Link>
-                  </li>
-                  <li>
-                    <Link>Submenu 2</Link>
-                  </li>
-                </ul>
+                    {menu.title}
+                  </NavLink>
+                </li>
+              ))}
+
+              {/* <li tabIndex={0}>
+                <Link to={"order"}>Order</Link>
               </li>
               <li>
-                <Link>Item 3</Link>
-              </li>
+                <Link to={"review"}>Review</Link>
+              </li> */}
             </ul>
           </div>
           <Link className="btn btn-ghost normal-case text-xl">daisyUI</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li>
-              <Link>Item 1</Link>
-            </li>
-            <li tabIndex={0}>
-              <Link>
-                Parent
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                </svg>
-              </Link>
-              <ul className="p-2">
-                <li>
-                  <Link>Submenu 1</Link>
-                </li>
-                <li>
-                  <Link>Submenu 2</Link>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <Link>Item 3</Link>
-            </li>
+            {menuList.map((menu) => (
+              <li key={menu.id}>
+                <NavLink  className={({ isActive }) =>isActive ? "active mr-3 btn  border-0" : "mr-3 btn text-white border-0 bg-white text-black hover:text-black"
+                    } to={menu.link}>{menu.title}</NavLink>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="navbar-end">
