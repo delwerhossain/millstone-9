@@ -2,8 +2,8 @@ import React from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 let menuList = [
   { title: "Home", link: "/", id: 1 },
-  { title: "About Us", link: "/order", id: 2 },
-  { title: "Menu", link: "/review", id: 3 },
+  { title: "Order", link: "/order", id: 2 },
+  { title: "Review", link: "/review", id: 3 },
   // { title: "Locations", link: "/locations", id: 4 },
   // { title: "Contact Us", link: "/contact-us", id: 5 }
 ];

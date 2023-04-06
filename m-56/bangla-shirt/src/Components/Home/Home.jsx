@@ -15,14 +15,14 @@ const Home = () => {
     }
 
     return (
-        <div className='grid grid-cols-4 mt-6 '>
-            <div className='col-span-3'>
+        <div className='grid lg:grid-cols-4 grid-cols-1 mt-6 '>
+            <div className='col-span-1 lg:col-span-3'>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:mx-4'>
               {products.map(product => <Products key={product._id} product={product} handleCarts={handleCarts}></Products>)}
         </div>
             </div>
             {/* order card */}
-            <div className='bg-orange-300 h-full
+            <div className='col-span-1 rounded-2xl lg:my-0 my-4 bg-orange-300 h-full
              '>
                 <Carts key={cartProducts.map(pd => pd._id)} cartProducts={cartProducts } ></Carts>
             </div>
