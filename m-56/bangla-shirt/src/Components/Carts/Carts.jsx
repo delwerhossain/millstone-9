@@ -1,10 +1,9 @@
 import React from 'react';
 
-const Carts = ({cartProducts}) => {
+const Carts = ({ pd ,handleRemove }) => {
+    // console.log(cartProducts);
     return (
-        <div className=' lg:fixed lg:my-0 my-4'>
-            <h1 className='text-6xl'> cartProducts : { cartProducts.length}</h1>
-        </div>
+        <h1 className='text-3xl p-2 rounded-lg bg-indigo-300'> name : {pd.name} <button onClick={()=>handleRemove(pd._id)}  className='btn'>X</button></h1>
     );
 };
 

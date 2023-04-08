@@ -10,7 +10,7 @@ const Products = ({ product ,handleCarts }) => {
           <h2 className="card-title">Name :{name}</h2>
                 <p> gender :{ gender}</p>
           <div className="card-actions justify-end">
-            <button onClick={()=>handleCarts(_id)} className="btn btn-primary">Buy Now</button>
+            <button onClick={()=>handleCarts(product)} className="btn btn-primary">Buy Now</button>
           </div>
         </div>
       </div>

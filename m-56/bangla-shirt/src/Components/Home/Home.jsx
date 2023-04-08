@@ -8,11 +8,21 @@ const Home = () => {
     const [cartProducts , setCartProducts] = useState([])
     const handleCarts = (id) => {
         // const addedProduct = []
-        const findProducts = products.find(product => product._id === id)
-        // addedProduct.push(findProducts)
-        setCartProducts([...cartProducts, findProducts])
-        // console.log(addedProduct);
+        const exist = cartProducts.find(product => product._id === id._id)
+        if (exist) {
+            alert("Product already")
+        }
+        else {
+            setCartProducts([...cartProducts,id ])
+        }
     }
+
+    const handleRemove = (id) => {
+        const remove = cartProducts.filter(product => product._id !== id)
+        setCartProducts([...remove])
+     }
+
+
 
     return (
         <div className='grid lg:grid-cols-4 grid-cols-1 mt-6 '>
@@ -24,7 +34,14 @@ const Home = () => {
             {/* order card */}
             <div className='col-span-1 rounded-2xl lg:my-0 my-4 bg-orange-300 h-full
              '>
-                <Carts key={cartProducts.map(pd => pd._id)} cartProducts={cartProducts } ></Carts>
+                 <div className=' lg:fixed lg:my-0 my-4'>
+            <h1 className='text-6xl'> cartProducts : {cartProducts.length}</h1>
+                    {cartProducts.map(pd => <Carts key={pd._id
+                    } pd={pd} handleRemove={handleRemove} ></Carts>)}
+            
+            
+        </div>
+               
             </div>
        </div>
     );
